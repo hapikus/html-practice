@@ -190,7 +190,7 @@ html, body {
   display: flex;
   justify-content: flex-start;
   column-gap: 25px;
-  padding: 24px 16px;
+  padding: 24px 24px;
 }
 
 .item-link {
