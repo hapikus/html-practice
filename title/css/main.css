@@ -199,6 +199,10 @@ html, body {
   color: black;
 }
 
+.item-link:hover {
+  opacity: 0.7;
+}
+
 /* Content-list */
 
 .content-list {
