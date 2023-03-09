@@ -23,6 +23,7 @@ br {
   justify-content: space-between;
   align-items: center;
   height: 60px;
+  margin: 10px 0;
 }
 .nav-wrapper img {
   -o-object-fit: cover;
@@ -120,7 +121,7 @@ br {
 
 /* Services */
 .services {
-  padding: 150px 0;
+  padding: 100px 0;
 }
 
 .services-containter {
@@ -186,7 +187,7 @@ br {
 }
 
 .about-countainer__text {
-  width: 620px;
+  width: 780px;
 }
 
 .about-countainer__text-title {
@@ -196,21 +197,21 @@ br {
 }
 
 .about-countainer__text-desc {
-  margin-top: 60px;
+  margin-top: 40px;
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
 }
 
 .about-countainer__img {
-  max-height: 500px;
+  max-width: 380px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 /* Reviews */
 .reviews {
-  margin-top: 150px;
+  margin: 100px 0;
 }
 
 .reviews-containter__title {

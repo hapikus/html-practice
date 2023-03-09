@@ -34,6 +34,7 @@ br {
   justify-content: space-between;
   align-items: center;
   height: 60px;
+  margin: 10px 0;
 
   img {
     object-fit: cover;
@@ -137,7 +138,7 @@ br {
 /* Services */
 
 .services {
-  padding: 150px 0;
+  padding: 100px 0;
 }
 
 .services-containter {
@@ -198,7 +199,7 @@ br {
 }
 
 .about-countainer__text {
-  width: $widthContainterBig;
+  width: 780px;
 }
 
 .about-countainer__text-title {
@@ -206,19 +207,19 @@ br {
 }
 
 .about-countainer__text-desc {
-  margin-top: 60px;
+  margin-top: 40px;
   @include textFormat(400, 16px, 140%);
 }
 
 .about-countainer__img {
-  max-height: 500px;
+  max-width: 380px;
   object-fit: cover;
 }
 
 /* Reviews */
 
 .reviews {
-  margin-top: 150px;
+  margin: 100px 0;
 }
 
 .reviews-containter__title {
