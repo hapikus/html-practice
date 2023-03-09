@@ -170,13 +170,116 @@
                 </ul>
               </div>
             </div>
-            <img src="../../assets/images/about-us.jpg" alt="" class="about-countainer__img" />
+            <img
+              src="../../assets/images/about-us.jpg"
+              alt=""
+              class="about-countainer__img"
+            />
           </div>
         </div>
       </section>
 
       <section class="reviews">
-        <div class="container">reviews</div>
+        <div class="container">
+          <div class="reviews-containter">
+            <p class="reviews-containter__title">Отзывы</p>
+            <!-- Slideshow container -->
+            <div class="slideshow-container">
+              <!-- Full-width slides/quotes -->
+              <div class="mySlides">
+                <div class="slide-cont">
+                  <div class="slide-text">
+                    <p class="slide-text__title">Анна Иванова</p>
+                    <p class="slide-text__desc">
+                      Благодаря фирме <strong>ktccom</strong>, мы смогли
+                      обновить компьютерный класс в нашей школе. <br />Все
+                      компьютеры были произведены из высококачественных
+                      комплектующих, и мы оценили их доступную цену. Мы
+                      благодарны фирме за их профессионализм.
+                    </p>
+                  </div>
+                  <img
+                    src="../../assets/images/review-1.jpg"
+                    alt=""
+                    class="slide-img"
+                  />
+                </div>
+              </div>
+
+              <div class="mySlides">
+                <div class="slide-cont">
+                  <div class="slide-text">
+                    <p class="slide-text__title">Александр Петров</p>
+                    <p class="slide-text__desc">
+                      Мы благодарны фирме <strong>ktccom</strong> за
+                      предоставленную нам поддержку и качественное оборудование
+                      для нашего компьютерного класса. <br />Качество продукции
+                      превзошло наши ожидания, а цены были доступны и приемлемы.
+                    </p>
+                  </div>
+                  <img
+                    src="../../assets/images/review-2.jpg"
+                    alt=""
+                    class="slide-img"
+                  />
+                </div>
+              </div>
+
+              <div class="mySlides">
+                <div class="slide-cont">
+                  <div class="slide-text">
+                    <p class="slide-text__title">Владимир Смирнов</p>
+                    <p class="slide-text__desc">
+                      Мы благодарны фирме <strong>ktccom</strong> за отлично
+                      проделанную работу по установке системы видео наблюдения
+                      на нашем предприятии. <br />Мы оценили их профессионализм
+                      и грамотное отношение к работе. Все было сделано в срок и
+                      было сделано отлично.
+                    </p>
+                  </div>
+                  <img
+                    src="../../assets/images/review-3.jpg"
+                    alt=""
+                    class="slide-img"
+                  />
+                </div>
+              </div>
+
+              <div class="mySlides">
+                <div class="slide-cont">
+                  <div class="slide-text">
+                    <p class="slide-text__title">Екатерина Николаева</p>
+                    <p class="slide-text__desc">
+                      Мы благодарны фирме <strong>ktccom</strong> за
+                      предоставленную нам поддержку и оборудование для нашей
+                      больницы. <br />Компьютеры в кабинетах и экраны в
+                      коридорах помогли нам улучшить обслуживание наших
+                      пациентов. Мы оценили их высокое качество и доступные
+                      цены.
+                    </p>
+                  </div>
+                  <img
+                    src="../../assets/images/review-4.jpg"
+                    alt=""
+                    class="slide-img"
+                  />
+                </div>
+              </div>
+
+              <!-- Next/prev buttons -->
+              <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+            <!-- Dots/bullets/indicators -->
+            <div class="dot-container">
+              <span class="dot" onclick="currentSlide(1)"></span>
+              <span class="dot" onclick="currentSlide(2)"></span>
+              <span class="dot" onclick="currentSlide(3)"></span>
+              <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="back-call">
@@ -191,5 +294,7 @@
     <footer class="footer">
       <div class="container">footer</div>
     </footer>
+
+    <script src="main.js"></script>
   </body>
 </html>

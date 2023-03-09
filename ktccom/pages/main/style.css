@@ -137,8 +137,7 @@ br {
 }
 
 .services-containter__item {
-  background-color: #3cb6f1;
-  background-color: #4D60F3;
+  background-color: #4d60f3;
   width: 380px;
   height: 223px;
   border-radius: 20px;
@@ -207,4 +206,141 @@ br {
   max-height: 500px;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+/* Reviews */
+.reviews {
+  margin-top: 150px;
+}
+
+.reviews-containter__title {
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 140%;
+  margin-bottom: 60px;
+}
+
+.slideshow-container {
+  position: relative;
+}
+
+.slide-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #13709d;
+  border-radius: 20px;
+}
+
+.slide-text__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 140%;
+  margin: 0 50px;
+  padding: 16px 0;
+  color: #fff;
+  text-align: center;
+  background-color: #13709d;
+}
+
+.slide-text__desc {
+  height: 350px;
+  text-align: left;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #fff;
+  margin: 0 50px;
+  padding: 0 20px 20px;
+  background-color: #13709d;
+}
+.slide-text__desc strong {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+}
+
+.slide-text br {
+  display: block;
+  margin: 10px 0;
+}
+
+.slide-img {
+  height: 400px;
+  width: 260px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+/* Slides */
+.mySlides {
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -30px;
+  padding: 16px;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: all 0.1s ease-in;
+}
+
+.prev {
+  left: 160px;
+}
+
+/* Position the "next button" to the right */
+.next {
+  position: absolute;
+  right: 160px;
+  border-radius: 3px 0 0 3px;
+  color: black;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  opacity: 0.65;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 10px;
+  background-color: #13709D;
+  opacity: 0.4;
+  border-radius: 3px;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active,
+.dot:hover {
+  background: #4F94B5;
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */
