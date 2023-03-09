@@ -7,7 +7,7 @@
 }
 
 html {
-  background-color: lightseagreen;
+  background-color: #7282F9;
 }
 
 .container {
@@ -27,6 +27,8 @@ html {
 
 .step__header {
   margin-bottom: 10px;
+  text-align: center;
+  margin-top: auto;
 }
 
 .step__header:active,
@@ -98,4 +100,25 @@ html {
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
+}
+
+@media screen and (max-width: 820px) {
+  .container {
+    margin: 50px 10px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .container {
+    height: 580px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .container {
+    height: 680px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .container {
+    height: 800px;
+  }
 }/*# sourceMappingURL=main.css.map */
