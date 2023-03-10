@@ -48,7 +48,7 @@ function drawStepPointAndLines(i) {
 
 function getPreLine(i) {
   let preLine = document.createElement("div");
-  if ( i === 0 ) {
+  if (i === 0) {
     preLine.className = "pre-line disabled";
   } else if (i === 1) {
     preLine.className = "pre-line line-active";
@@ -73,9 +73,9 @@ function getPoint(i) {
 function getPostLine(i) {
   let postLine = document.createElement("div");
 
-  if ( i === menu.length - 1 ) {
+  if (i === menu.length - 1) {
     postLine.className = "post-line disabled";
-  } else if ( i === 0 ) {
+  } else if (i === 0) {
     postLine.className = "post-line line-active";
   } else {
     postLine.className = "post-line";
@@ -128,8 +128,8 @@ function setForm() {
   menu.forEach((item, index) => {
     let step = document.createElement("div");
     step.className = "step";
-    step.appendChild(drawStepHeader(index));
     step.appendChild(drawStepPointAndLines(index));
+    step.appendChild(drawStepHeader(index));
 
     document.getElementById("steps").appendChild(step);
 
@@ -140,23 +140,20 @@ function setForm() {
 }
 
 window.addEventListener("click", (e) => {
-
   if (e.target.id.includes("block")) {
-
     currentStep = +e.target.id.at(-1);
     console.log(currentStep);
 
     for (let i = 0; i < menu.length; i++) {
       if (i + 1 < currentStep) {
-        paintPreviousStep(i+1);
+        paintPreviousStep(i + 1);
       } else if (i === currentStep - 1) {
-        paintCurrentStep(i+1);
+        paintCurrentStep(i + 1);
       } else {
-        paintFutureStep(i+1);
+        paintFutureStep(i + 1);
       }
     }
   }
-
 });
 
 function paintPreviousStep(i) {
