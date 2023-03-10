@@ -12,17 +12,17 @@ html {
 
 .container {
   max-width: 800px;
-  height: 500px;
+  height: 530px;
   margin: 50px auto;
-  border: 1px black solid;
   background-color: white;
 }
 
 /* Steps */
 .steps {
-  margin: 20px;
+  padding: 30px 20px;
   display: flex;
   justify-content: space-between;
+  border: 1px solid black;
 }
 
 .step__header {
@@ -62,6 +62,10 @@ html {
   background-color: #32b4f2;
 }
 
+.point-done {
+  background-color: #32b4f2;
+}
+
 .pre-line,
 .post-line {
   height: 1px;
@@ -69,8 +73,23 @@ html {
   background-color: #e0e0e0;
 }
 
+.line-active {
+  background-color: #32b4f2;
+}
+
+.line-done {
+  background-color: #32b4f2;
+}
+
 .disabled {
   height: 0px;
+}
+
+/* Break-line */
+.break-line {
+  height: 20px;
+  width: 100%;
+  background: #7282F9;
 }
 
 /* Content */
@@ -79,7 +98,7 @@ html {
 }
 
 .content-item {
-  margin: 10px 60px;
+  margin: 30px 60px;
   position: absolute;
   top: 0;
   left: 0;
@@ -109,16 +128,16 @@ html {
 }
 @media screen and (max-width: 550px) {
   .container {
-    height: 580px;
+    height: 610px;
   }
 }
 @media screen and (max-width: 450px) {
   .container {
-    height: 680px;
+    height: 720px;
   }
 }
 @media screen and (max-width: 370px) {
   .container {
-    height: 800px;
+    height: 840px;
   }
 }/*# sourceMappingURL=main.css.map */

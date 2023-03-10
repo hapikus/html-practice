@@ -3,13 +3,7 @@ function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-let menu = [
-  "Contacts info",
-  "Step 1",
-  "Step 2",
-  "Step 3",
-  "Finishing",
-];
+let menu = ["Contacts info", "Step 1", "Step 2", "Step 3", "Finishing"];
 
 let loremIpsum = [
   `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec quam blandit, tempus erat sit amet, pretium turpis. Cras eu nulla tincidunt, mollis metus eu, pretium odio. Morbi placerat justo nisi, non porttitor magna gravida vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec ultricies rutrum lorem, vitae porttitor diam pulvinar at. Donec interdum at nisi eget facilisis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.`,
@@ -31,62 +25,100 @@ window.onload = function () {
   setForm();
 };
 
+function drawStepHeader(i) {
+  let stepHeader = document.createElement("a");
+  stepHeader.className = "step__header";
+  stepHeader.href = "#";
+  stepHeader.innerText = menu[i];
+  stepHeader.id = `block-${i + 1}`;
+
+  return stepHeader;
+}
+
+function drawStepPointAndLines(i) {
+  let stepPoint = document.createElement("div");
+  stepPoint.className = "step__point";
+
+  stepPoint.appendChild(getPreLine(i));
+  stepPoint.appendChild(getPoint(i));
+  stepPoint.appendChild(getPostLine(i));
+
+  return stepPoint;
+}
+
+function getPreLine(i) {
+  let preLine = document.createElement("div");
+  preLine.className = i === 0 ? "pre-line disabled" : "pre-line";
+
+  return preLine;
+}
+
+function getPoint(i) {
+  let point = document.createElement("a");
+  point.className = i === currentStep - 1 ? "point point-active" : "point";
+  point.href = "#";
+  point.id = `block-${i + 1}`;
+
+  return point;
+}
+
+function getPostLine(i) {
+  let postLine = document.createElement("div");
+  postLine.className =
+    i === menu.length - 1 ? "post-line disabled" : "post-line";
+
+  return postLine;
+}
+
+function drawContentItem(i) {
+  let contentItem = getContentItem(i);
+
+  contentItem.appendChild(getContentTitle(i));
+  contentItem.appendChild(getContentText(i));
+
+  return contentItem;
+}
+
+function getContentItem(i) {
+  let contentItem = document.createElement("div");
+  contentItem.className =
+    i === currentStep - 1
+      ? "content-item content-item__active"
+      : "content-item content-item__disabled";
+      contentItem.id = `block-${i + 1}`;
+
+  return contentItem;
+}
+
+function getContentTitle(i) {
+  let contentTitle = document.createElement("p");
+  contentTitle.className = "content-item__title";
+  contentTitle.innerText = menu[i];
+
+  return contentTitle
+}
+
+function getContentText(i) {
+  let contentText = document.createElement("p");
+  let articleNumber = randomIntFromInterval(1, loremIpsum.length) - 1;
+
+  contentText.className = "content-item__text";
+  contentText.innerText = loremIpsum[articleNumber];
+
+  return contentText
+}
+
 function setForm() {
-  for (let i = 0; i < menu.length; i++) {
+  menu.forEach((item, index) => {
     let step = document.createElement("div");
     step.className = "step";
-
-    let stepHeader = document.createElement("a");
-    stepHeader.className = "step__header";
-    stepHeader.href = "#"
-    stepHeader.innerText = menu[i];
-    stepHeader.id = `block-${i + 1}`;
-
-    let stepPoint = document.createElement("div");
-    stepPoint.className = "step__point";
-
-    let preLine = document.createElement("div");
-    preLine.className = i === 0 ? "pre-line disabled" : "pre-line";
-
-    let point = document.createElement("a");
-    point.className = i === currentStep - 1 ? "point point-active" : "point";
-    point.href = "#"
-    point.id = `block-${i + 1}`;
-
-    let postLine = document.createElement("div");
-    postLine.className =
-      i === menu.length - 1 ? "post-line disabled" : "post-line";
-
-    stepPoint.appendChild(preLine);
-    stepPoint.appendChild(point);
-    stepPoint.appendChild(postLine);
-
-    step.appendChild(stepHeader);
-    step.appendChild(stepPoint);
+    step.appendChild(drawStepHeader(index));
+    step.appendChild(drawStepPointAndLines(index));
 
     document.getElementById("steps").appendChild(step);
 
-    let contextItem = document.createElement("div");
-    contextItem.className =
-      i === currentStep - 1
-        ? "content-item content-item__active"
-        : "content-item content-item__disabled";
-    contextItem.id = `block-${i + 1}`;
-
-    let contextTitle = document.createElement("p");
-    contextTitle.className = "content-item__title";
-    contextTitle.innerText = menu[i];
-
-    let contextText = document.createElement("p");
-    contextText.className = "content-item__text";
-    contextText.innerText =
-      loremIpsum[randomIntFromInterval(1, loremIpsum.length) - 1];
-
-    contextItem.appendChild(contextTitle);
-    contextItem.appendChild(contextText);
-
-    document.getElementById("content_items").appendChild(contextItem);
-  }
+    document.getElementById("content_items").appendChild(drawContentItem(index));
+  })
 }
 
 window.addEventListener("click", (e) => {
