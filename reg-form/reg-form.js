@@ -3,7 +3,7 @@ function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-let menu = ["Contacts info", "Step 1", "Step 2", "Step 3", "Finishing"];
+let menu = ["Contacts info", "Step 1", "Step 2", "Finishing"];
 
 let loremIpsum = [
   `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec quam blandit, tempus erat sit amet, pretium turpis. Cras eu nulla tincidunt, mollis metus eu, pretium odio. Morbi placerat justo nisi, non porttitor magna gravida vitae. Interdum et malesuada fames ac ante ipsum primis in faucibus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec ultricies rutrum lorem, vitae porttitor diam pulvinar at. Donec interdum at nisi eget facilisis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.`,
@@ -48,7 +48,15 @@ function drawStepPointAndLines(i) {
 
 function getPreLine(i) {
   let preLine = document.createElement("div");
-  preLine.className = i === 0 ? "pre-line disabled" : "pre-line";
+  if ( i === 0 ) {
+    preLine.className = "pre-line disabled";
+  } else if (i === 1) {
+    preLine.className = "pre-line line-active";
+  } else {
+    preLine.className = "pre-line";
+  }
+
+  preLine.id = `block-${i + 1}`;
 
   return preLine;
 }
@@ -64,8 +72,16 @@ function getPoint(i) {
 
 function getPostLine(i) {
   let postLine = document.createElement("div");
-  postLine.className =
-    i === menu.length - 1 ? "post-line disabled" : "post-line";
+
+  if ( i === menu.length - 1 ) {
+    postLine.className = "post-line disabled";
+  } else if ( i === 0 ) {
+    postLine.className = "post-line line-active";
+  } else {
+    postLine.className = "post-line";
+  }
+
+  postLine.id = `block-${i + 1}`;
 
   return postLine;
 }
@@ -85,7 +101,7 @@ function getContentItem(i) {
     i === currentStep - 1
       ? "content-item content-item__active"
       : "content-item content-item__disabled";
-      contentItem.id = `block-${i + 1}`;
+  contentItem.id = `block-${i + 1}`;
 
   return contentItem;
 }
@@ -95,7 +111,7 @@ function getContentTitle(i) {
   contentTitle.className = "content-item__title";
   contentTitle.innerText = menu[i];
 
-  return contentTitle
+  return contentTitle;
 }
 
 function getContentText(i) {
@@ -105,7 +121,7 @@ function getContentText(i) {
   contentText.className = "content-item__text";
   contentText.innerText = loremIpsum[articleNumber];
 
-  return contentText
+  return contentText;
 }
 
 function setForm() {
@@ -117,32 +133,87 @@ function setForm() {
 
     document.getElementById("steps").appendChild(step);
 
-    document.getElementById("content_items").appendChild(drawContentItem(index));
-  })
+    document
+      .getElementById("content_items")
+      .appendChild(drawContentItem(index));
+  });
 }
 
 window.addEventListener("click", (e) => {
-  if (e.target.id.includes("block")) {
-    blocksOld = document.querySelectorAll(`[id=block-${currentStep}]`);
 
-    for (let i = 0; i < blocksOld.length; i++) {
-      if (blocksOld[i].className.includes("point")) {
-        blocksOld[i].className = "point";
-      } else if (blocksOld[i].className.includes("content-item")) {
-        blocksOld[i].className = "content-item content-item__disabled";
-      }
-    }
+  if (e.target.id.includes("block")) {
 
     currentStep = +e.target.id.at(-1);
+    console.log(currentStep);
 
-    blocksNew = document.querySelectorAll(`[id=block-${currentStep}]`);
-
-    for (let i = 0; i < blocksNew.length; i++) {
-      if (blocksNew[i].className.includes("point")) {
-        blocksNew[i].className = "point point-active";
-      } else if (blocksNew[i].className.includes("content-item")) {
-        blocksNew[i].className = "content-item content-item__active";
+    for (let i = 0; i < menu.length; i++) {
+      if (i + 1 < currentStep) {
+        paintPreviousStep(i+1);
+      } else if (i === currentStep - 1) {
+        paintCurrentStep(i+1);
+      } else {
+        paintFutureStep(i+1);
       }
     }
   }
+
 });
+
+function paintPreviousStep(i) {
+  blocks = document.querySelectorAll(`[id=block-${i}]`);
+
+  blocks.forEach((item, index) => {
+
+    if (item.className.includes('pre-line') && !item.className.includes('disabled')) {
+      item.className = "pre-line line-active";
+    } else if (item.className.includes('point')) {
+      item.className = "point point-done"
+    } else if (item.className.includes('post-line') && !item.className.includes('disabled')) {
+      item.className = "post-line line-active";
+    } else if (item.className.includes("content-item")) {
+      item.className = "content-item content-item__disabled";
+    }
+
+  })
+}
+
+function paintCurrentStep(i) {
+  blocks = document.querySelectorAll(`[id=block-${i}]`);
+
+  blocks.forEach((item, index) => {
+
+    if (item.className.includes('pre-line') && !item.className.includes('disabled')) {
+      item.className = "pre-line line-active";
+    } else if (item.className.includes('point')) {
+      item.className = "point point-active"
+    } else if (item.className.includes('post-line') && !item.className.includes('disabled')) {
+      item.className = "post-line line-active";
+    } else if (item.className.includes("content-item")) {
+      item.className = "content-item content-item__active";
+    }
+
+  })
+}
+
+function paintFutureStep(i) {
+  blocks = document.querySelectorAll(`[id=block-${i}]`);
+
+  blocks.forEach((item, index) => {
+    if (item.className.includes('pre-line') && !item.className.includes('disabled')) {
+
+      if ( i === currentStep+1) {
+        item.className = "pre-line line-active";
+      } else {
+        item.className = "pre-line";
+      }
+
+    } else if (item.className.includes('point')) {
+      item.className = "point"
+    } else if (item.className.includes('post-line') && !item.className.includes('disabled')) {
+      item.className = "post-line";
+    } else if (item.className.includes("content-item")) {
+      item.className = "content-item content-item__disabled";
+    }
+
+  })
+}
