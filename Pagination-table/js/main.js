@@ -6,7 +6,7 @@ function randomIntFromInterval(min, max) {
 }
 
 let pageNumbers = 7;
-let userPerPageNumbers = 10;
+let userPerPageNumbers = 7;
 let columns = ["id", "email", "first_name", "last_name"];
 
 function createTable({ rows, cols }) {
@@ -21,19 +21,25 @@ function createTable({ rows, cols }) {
 }
 
 function createGrid(num) {
-  let cell = document.createElement("div");
-
-  cell.id = `${Math.floor(num / userPerPageNumbers) + 1} ${
+  let cellTable = document.createElement("div");
+  cellTable.className = "table-cell__cont";
+  cellTable.id = `table-cell__cont ${Math.floor(num / columns.length) + 1}-${
     (num % columns.length) + 1
   }`;
+  cellTable.appendChild(createText(num));
+  return cellTable;
+}
 
-  cell.innerText = `${Math.floor(num / columns.length) + 1} ${
+function createText(num) {
+  let cellText = document.createElement("p");
+  cellText.className = "table-cell__text";
+  cellText.id = `table-cell__text ${Math.floor(num / columns.length) + 1}-${
     (num % columns.length) + 1
   }`;
-
-  cell.className = "grid-item";
-
-  return cell;
+  cellText.innerText = `${Math.floor(num / columns.length) + 1}-${
+    (num % columns.length) + 1
+  }`;
+  return cellText;
 }
 
 function createPagination() {
@@ -50,10 +56,10 @@ function createPagination() {
 
 function createArrow(symb, name) {
   let cell = document.createElement("div");
+  cell.className = `pagination_arrow__${name}-item`;
+  
   let arrowLeft = document.createElement("a");
-
-  cell.className = `pagination_arrow__${name}`;
-  arrowLeft.className = `pagination_arrow__${name}`;
+  arrowLeft.className = `pagination_arrow__${name}-link`;
   arrowLeft.innerText = symb;
 
   cell.appendChild(arrowLeft);
@@ -88,12 +94,47 @@ window.onload = function () {
   createList();
 };
 
-function createList() {}
+function createList() {
+  fillHeader();
+  fillTable();
+}
 
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "https://reqres.in/api/users/1", true);
-xhr.onload = function () {
-  console.log(xhr.responseText);
-};
+function fillHeader() {
+  for (let c = 0; c < columns.length; c++) {
+    const cellCont = document.getElementById(`table-cell__cont 1-${c + 1}`);
+    cellCont.classList.add("header");
 
-xhr.send();
+    const cellText = document.getElementById(`table-cell__text 1-${c + 1}`);
+    cellText.innerText = columns[c];
+  }
+}
+
+// {"data": {
+//     "id": 1,
+//     "email": "george.bluth@reqres.in",
+//     "first_name": "George",
+//     "last_name": "Bluth",
+//     "avatar":"https://reqres.in/img/faces/1-image.jpg",
+// }}
+
+async function getUser(r) {
+  try {
+    const response = await fetch(`https://reqres.in/api/users/${r}`);
+    const responseData = await response.json();
+    console.log(responseData);
+    for (let c = 0; c < columns.length; c++) {
+      const cellText = document.getElementById(
+        `table-cell__text ${r + 1}-${c + 1}`
+      );
+      cellText.innerText = responseData["data"][columns[c]];
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function fillTable() {
+  for (r = 1; r <= userPerPageNumbers; r++) {
+    getUser(r);
+  }
+}
