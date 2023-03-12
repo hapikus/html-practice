@@ -465,9 +465,10 @@ input {
 }
 
 .partners-cont .slide-track {
-  animation: scroll 30s linear infinite;
   display: flex;
-  width: 3200px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 10px;
 }
 
 .slide-track__img {
