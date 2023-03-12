@@ -117,6 +117,8 @@ function fillHeader() {
 //     "avatar":"https://reqres.in/img/faces/1-image.jpg",
 // }}
 
+// https://dummyjson.com/users
+
 async function getUser(r) {
   try {
     const response = await fetch(`https://reqres.in/api/users/${r}`);

@@ -196,7 +196,7 @@ html, body {
 .item-link {
   font-size: 18px;
   text-decoration: none;
-  color: black;
+  color: rgb(241, 167, 40);
 }
 
 .item-link:hover {
