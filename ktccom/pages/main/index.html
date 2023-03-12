@@ -64,18 +64,33 @@
         <div class="container">
           <div class="services-containter">
             <div class="services-containter__text">
-              <div class="services-containter__text-title">text-title</div>
-              <div class="services-containter__text-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-                veritatis doloribus praesentium in minus, pariatur architecto
-                saepe excepturi perferendis aliquam iure, reiciendis, quam natus
-                ullam sapiente vitae unde magni vero.
-                <br />Aspernatur quae perferendis ipsa quidem. Ipsum ab alias
-                quasi quo iure perspiciatis fugit.
+              <div
+                class="services-containter__text-title"
+                id="services-containter__text-title"
+              >
+                Корпоративные коммуникации
+              </div>
+              <div
+                class="services-containter__text-desc"
+                id="services-containter__text-desc"
+              >
+                Корпоративные коммуникации являются важной частью успешного
+                функционирования любого бизнеса, и для их эффективной
+                организации необходимо использовать соответствующее
+                оборудование.
+                <br />Системы телефонной связи могут включать в себя как обычные
+                стационарные телефоны, так и более продвинутые VoIP-решения,
+                позволяющие осуществлять звонки через Интернет. <br />
+                Дополнительно можно использовать программные решения для обмена
+                сообщениями и совместной работы над документами, такие как
+                Slack, Microsoft Teams или Google Workspace.
               </div>
             </div>
             <div class="services-containter__items">
-              <div class="services-containter__item">
+              <div
+                class="services-containter__item"
+                id="corporate-communications"
+              >
                 <p class="services-containter__item-text">
                   Корпоративные коммуникации
                 </p>
@@ -85,7 +100,7 @@
                   class="services-containter__item-icon"
                 />
               </div>
-              <div class="services-containter__item">
+              <div class="services-containter__item" id="server-equipment">
                 <p class="services-containter__item-text">
                   Серверное оборудование
                 </p>
@@ -95,7 +110,7 @@
                   class="services-containter__item-icon"
                 />
               </div>
-              <div class="services-containter__item">
+              <div class="services-containter__item" id="office-equipment">
                 <p class="services-containter__item-text">Оргтехника</p>
                 <img
                   src="../../assets/icons/print.png"
@@ -103,7 +118,7 @@
                   class="services-containter__item-icon"
                 />
               </div>
-              <div class="services-containter__item">
+              <div class="services-containter__item" id="audio-video-equipment">
                 <p class="services-containter__item-text">
                   Аудио-Видео оборудование
                 </p>
@@ -113,7 +128,7 @@
                   class="services-containter__item-icon"
                 />
               </div>
-              <div class="services-containter__item">
+              <div class="services-containter__item" id="security-equipment">
                 <p class="services-containter__item-text">Безопасность</p>
                 <img
                   src="../../assets/icons/shield.png"
@@ -121,7 +136,7 @@
                   class="services-containter__item-icon"
                 />
               </div>
-              <div class="services-containter__item">
+              <div class="services-containter__item" id="software">
                 <p class="services-containter__item-text">
                   Программное обеспечение
                 </p>
@@ -281,7 +296,52 @@
       </section>
 
       <section class="back-call">
-        <div class="container">back-call</div>
+        <div class="container">
+          <div class="back-call-cont">
+            <div class="back-call-cont__map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2280.018557231909!2d61.3638254159071!3d55.14795398039599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x43c592979d990a9f%3A0x86430ca24d99efe2!2z0JvQtdGB0L7Qv9Cw0YDQutC-0LLQsNGPINGD0LsuLCAyMywgMywg0KfQtdC70Y_QsdC40L3RgdC6LCDQp9C10LvRj9Cx0LjQvdGB0LrQsNGPINC-0LHQuy4sINCg0L7RgdGB0LjRjywgNDU0MDgw!5e0!3m2!1sru!2sth!4v1678622772696!5m2!1sru!2sth"
+                width="100%"
+                height="600px"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <div class="back-call-cont__info">
+              <p class="info__title">Головной офис</p>
+              <p class="info__address">
+                Адрес: 454080, г. Челябинск, ул. Лесопарковая 23, оф.3
+              </p>
+              <p class="info__phone">Телефон: 8 (351) 729-37-37</p>
+              <p class="info__email">E-Mail: info@ktccom.ru</p>
+            </div>
+            <div class="back-call-cont__form">
+              <input
+                type="text"
+                class="form__name-input"
+                placeholder="Введите ваше имя"
+              />
+              <input
+                type="email"
+                class="form__email-input"
+                placeholder="Введите адрес электронной почты"
+              />
+              <input
+                type="tel"
+                class="form__phone-input"
+                placeholder="Введите номер телефона"
+              />
+              <input
+                type="text"
+                class="form__msg-input"
+                placeholder="Введите сообщение"
+              />
+              <button class="form__button-send">Отправить</button>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="partners">
