@@ -18,12 +18,16 @@ br {
 }
 
 /* Nav */
+.nav {
+  background-color: #4d60f3;
+  padding: 10px 0;
+}
+
 .nav-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  margin: 10px 0;
 }
 .nav-wrapper img {
   -o-object-fit: cover;
@@ -44,7 +48,7 @@ br {
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
-  color: black;
+  color: white;
   text-decoration: none;
 }
 .nav-list__link:hover {
@@ -54,7 +58,7 @@ br {
 /* Header */
 .header {
   height: 650px;
-  background: url("../../assets/images/header-3.jpg") no-repeat center;
+  background: url("../../assets/images/header-2.jpg") no-repeat center;
   background-size: cover;
   position: relative;
 }
@@ -116,7 +120,11 @@ br {
   width: 165px;
   height: 30px;
   padding-right: 45px;
-  background: url(../../assets/icons/arrow-button.png) no-repeat 95% center;
+  transition: all 0.3s ease;
+  background: url(../../assets/icons/arrow-button.png) no-repeat 92% center;
+}
+.header-containter__link:hover {
+  background: url(../../assets/icons/arrow-button.png) no-repeat right center;
 }
 
 /* Services */
@@ -175,6 +183,10 @@ br {
   font-weight: 400;
   font-size: 16px;
   line-height: 140%;
+}
+
+.services-containter__active {
+  background-color: #3cb6f1;
 }
 
 /* About */
@@ -432,4 +444,61 @@ input {
   color: white;
   padding: 5px;
   width: 30%;
+}
+
+/* partners */
+.partners {
+  padding: 100px 0;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-2000px);
+  }
+}
+.partners-cont {
+  overflow: hidden;
+  position: relative;
+}
+
+.partners-cont .slide-track {
+  animation: scroll 30s linear infinite;
+  display: flex;
+  width: 3200px;
+}
+
+.slide-track__img {
+  width: 200px;
+  padding: 0 5px;
+  height: 53px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/* footer */
+.footer {
+  background-color: #4d60f3;
+  padding: 10px 0;
+}
+
+.footer-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+.footer-cont img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 55px;
+}
+
+.footer-phone {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  color: white;
 }/*# sourceMappingURL=style.css.map */

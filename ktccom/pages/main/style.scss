@@ -29,12 +29,16 @@ br {
 
 /* Nav */
 
+.nav {
+  background-color: #4d60f3;
+  padding: 10px 0;
+}
+
 .nav-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 60px;
-  margin: 10px 0;
 
   img {
     object-fit: cover;
@@ -52,7 +56,7 @@ br {
 .nav-list__link {
   font-style: normal;
   @include textFormat(400, 16px, 140%);
-  color: black;
+  color: white;
   text-decoration: none;
 
   &:hover {
@@ -64,7 +68,7 @@ br {
 
 .header {
   height: 650px;
-  background: url("../../assets/images/header-3.jpg") no-repeat center;
+  background: url("../../assets/images/header-2.jpg") no-repeat center;
   background-size: cover;
 
   position: relative;
@@ -132,7 +136,12 @@ br {
   height: 30px;
 
   padding-right: 45px;
-  background: url(../../assets/icons/arrow-button.png) no-repeat 95% center;
+  transition: all 0.3s ease;
+  background: url(../../assets/icons/arrow-button.png) no-repeat 92% center;
+
+  &:hover {
+    background: url(../../assets/icons/arrow-button.png) no-repeat right center;
+  }
 }
 
 /* Services */
@@ -187,6 +196,10 @@ br {
 .services-containter__text-desc {
   margin-top: 40px;
   @include textFormat(400, 16px, 140%);
+}
+
+.services-containter__active {
+  background-color: #3cb6f1;
 }
 
 /* About */
@@ -442,4 +455,62 @@ input {
   padding: 5px;
 
   width: 30%;
+}
+
+/* partners */
+
+.partners {
+  padding: 100px 0;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(calc(-200px * 10));
+  }
+}
+.partners-cont {
+  overflow: hidden;
+  position: relative;
+}
+
+.partners-cont .slide-track {
+  animation: scroll 30s linear infinite;
+  display: flex;
+
+  width: calc(200px * 16);
+}
+
+.slide-track__img {
+  width: 200px;
+  padding: 0 5px;
+  height: 53px;
+  
+  object-fit: contain;
+}
+
+/* footer */
+
+.footer {
+  background-color: #4d60f3;
+  padding: 10px 0;
+}
+
+.footer-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+
+  img {
+    object-fit: cover;
+    height: 55px;
+  }
+}
+
+.footer-phone {
+  @include textFormat(500, 20px, 140%);
+  color: white;
 }

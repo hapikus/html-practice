@@ -21,16 +21,16 @@
               <a href="./index.html" class="nav-list__link">Главная</a>
             </li>
             <li class="nav-list__item">
-              <a href="#sessions" class="nav-list__link">Услуги</a>
+              <a href="#services" class="nav-list__link">Услуги</a>
             </li>
             <li class="nav-list__item">
-              <a href="#review" class="nav-list__link">О нас</a>
+              <a href="#about" class="nav-list__link">О нас</a>
             </li>
             <li class="nav-list__item">
-              <a href="#location" class="nav-list__link">Отзывы</a>
+              <a href="#reviews" class="nav-list__link">Отзывы</a>
             </li>
             <li class="nav-list__item">
-              <a href="./news.html" class="nav-list__link">Обратный звонок</a>
+              <a href="#back-call" class="nav-list__link">Обратный звонок</a>
             </li>
           </ul>
         </div>
@@ -49,9 +49,7 @@
               оборудование по доступным ценам для вашего бизнеса.
             </p>
             <a
-              href="http://"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#about"
               class="header-containter__link"
             >
               О КОМПАНИИ
@@ -60,7 +58,7 @@
         </div>
       </section>
 
-      <section class="services">
+      <section class="services" id="services">
         <div class="container">
           <div class="services-containter">
             <div class="services-containter__text">
@@ -88,62 +86,81 @@
             </div>
             <div class="services-containter__items">
               <div
-                class="services-containter__item"
+                class="services-containter__item services-containter__active"
                 id="corporate-communications"
               >
-                <p class="services-containter__item-text">
+                <p
+                  class="services-containter__item-text"
+                  id="corporate-communications"
+                >
                   Корпоративные коммуникации
                 </p>
                 <img
                   src="../../assets/icons/group.png"
                   alt=""
                   class="services-containter__item-icon"
+                  id="corporate-communications"
                 />
               </div>
               <div class="services-containter__item" id="server-equipment">
-                <p class="services-containter__item-text">
+                <p class="services-containter__item-text" id="server-equipment">
                   Серверное оборудование
                 </p>
                 <img
                   src="../../assets/icons/server.png"
                   alt=""
                   class="services-containter__item-icon"
+                  id="server-equipment"
                 />
               </div>
               <div class="services-containter__item" id="office-equipment">
-                <p class="services-containter__item-text">Оргтехника</p>
+                <p class="services-containter__item-text" id="office-equipment">
+                  Оргтехника
+                </p>
                 <img
                   src="../../assets/icons/print.png"
                   alt=""
                   class="services-containter__item-icon"
+                  id="office-equipment"
                 />
               </div>
               <div class="services-containter__item" id="audio-video-equipment">
-                <p class="services-containter__item-text">
+                <p
+                  class="services-containter__item-text"
+                  id="audio-video-equipment"
+                >
                   Аудио-Видео оборудование
                 </p>
                 <img
                   src="../../assets/icons/audio.png"
                   alt=""
                   class="services-containter__item-icon"
+                  id="audio-video-equipment"
                 />
               </div>
               <div class="services-containter__item" id="security-equipment">
-                <p class="services-containter__item-text">Безопасность</p>
+                <p
+                  class="services-containter__item-text"
+                  id="security-equipment"
+                >
+                  Безопасность
+                </p>
                 <img
                   src="../../assets/icons/shield.png"
                   alt=""
                   class="services-containter__item-icon"
+                  id="security-equipment"
                 />
               </div>
               <div class="services-containter__item" id="software">
-                <p class="services-containter__item-text">
+                <p class="services-containter__item-text" id="software">
                   Программное обеспечение
                 </p>
                 <img
                   src="../../assets/icons/software.png"
                   alt=""
                   class="services-containter__item-icon"
+                  id="software"
                 />
               </div>
             </div>
@@ -151,7 +168,7 @@
         </div>
       </section>
 
-      <section class="about">
+      <section class="about" id="about">
         <div class="container">
           <div class="about-countainer">
             <div class="about-countainer__text">
@@ -192,7 +209,7 @@
         </div>
       </section>
 
-      <section class="reviews">
+      <section class="reviews" id="reviews">
         <div class="container">
           <div class="reviews-containter">
             <p class="reviews-containter__title">Отзывы</p>
@@ -295,7 +312,7 @@
         </div>
       </section>
 
-      <section class="back-call">
+      <section class="back-call" id="back-call">
         <div class="container">
           <div class="back-call-cont">
             <div class="back-call-cont__map">
@@ -312,10 +329,10 @@
             <div class="back-call-cont__info">
               <p class="info__title">Головной офис</p>
               <p class="info__address">
-                Адрес: 454080, г. Челябинск, ул. Лесопарковая 23, оф.3
+                454080, г. Челябинск, ул. Лесопарковая 23, оф.3
               </p>
-              <p class="info__phone">Телефон: 8 (351) 729-37-37</p>
-              <p class="info__email">E-Mail: info@ktccom.ru</p>
+              <p class="info__phone">+7 (351) 729-37-37</p>
+              <p class="info__email">info@ktccom.ru</p>
             </div>
             <div class="back-call-cont__form">
               <input
@@ -345,12 +362,185 @@
       </section>
 
       <section class="partners">
-        <div class="container">partners</div>
+        <div class="container">
+          <div class="partners-cont">
+            <div class="slide-track">
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/aq.png"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/asus.jpg"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/auvix.jpg"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/avaya.jpg"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/benq.jpg"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/canon.png"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/dahua.png"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/dlink.png"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/drweb_logo_green.png"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/dlink.png"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/dahua.png"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/canon.png"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/benq.jpg"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/avaya.jpg"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/auvix.jpg"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+              
+              <div class="slide-track__cont">
+                <a href="" class="slide-track__cont-link">
+                  <img
+                    src="../../assets/partners/aq.png"
+                    alt=""
+                    class="slide-track__img"
+                  />
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="container">footer</div>
+      <div class="container">
+        <div class="footer-cont">
+          <a href="./index.html" class="footer-logo nav-logo">
+            <img src="../../assets/icons/logo.png" alt="Logo" />
+          </a>
+          <p class="footer-phone">+7 (351) 729-37-37</p>
+        </div>
+      </div>
     </footer>
 
     <script src="main.js"></script>

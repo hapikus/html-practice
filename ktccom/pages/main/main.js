@@ -69,12 +69,26 @@ function showSlides(n) {
 }
 
 document
-  .querySelectorAll("[class=services-containter__item]")
+  .querySelectorAll(
+    "div.services-containter__item, p.services-containter__item-text, img.services-containter__item-icon"
+  )
   .forEach((elem) => {
     elem.addEventListener("click", serviceText);
   });
 
 function serviceText(e) {
+  document
+    .querySelectorAll("div.services-containter__item")
+    .forEach((elem) => {
+      if (elem.id === e.target.id) {
+        elem.classList.add('services-containter__active');
+      } else {
+        elem.classList.remove('services-containter__active');
+      }
+    });
+    
+  
+
   let servTitle = document.getElementById("services-containter__text-title");
   servTitle.innerText = services[e.target.id]["title"];
 
