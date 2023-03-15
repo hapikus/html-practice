@@ -16,9 +16,6 @@
 
           <ul class="nav-cont__list">
             <li class="nav-list__item">
-              <a href="./index.html" class="nav-list__link">Главная</a>
-            </li>
-            <li class="nav-list__item">
               <a href="#sessions" class="nav-list__link">Портфолио</a>
             </li>
           </ul>
@@ -28,17 +25,21 @@
 
     <main class="main">
       <div class="containter">
-        <div class="main-cont">
-
+        <div class="loader" id="loader"></div>
+        <div class="main-cont" id="main-cont">
           <div class="main-cont__table" id="main-cont__table"></div>
 
           <div class="main-cont_add">
             <button class="main-cont__save">
-                <img class="main-cont__save-img" src="./images/icons8-save-64.png" alt="" srcset="">
+              <img
+                class="main-cont__save-img"
+                src="./images/icons8-save-64.png"
+                alt=""
+                srcset=""
+              />
             </button>
             <div class="pagination_items" id="pagination_items"></div>
           </div>
-
         </div>
       </div>
     </main>

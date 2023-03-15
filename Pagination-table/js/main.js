@@ -77,6 +77,24 @@ let columns = [
   "address.city",
   "address.postalCode",
 ];
+let columnsUserFriendlyNames = {
+  id: "Id",
+  firstName: "First name",
+  lastName: "Last name",
+  maidenName: "Maiden mame",
+  age: "Age",
+  gender: "Gender",
+  email: "E-mail",
+  phone: "Phone",
+  username: "User name",
+  birthDate: "Birth date",
+  height: "Height",
+  weight: "Weight",
+  domain: "Domain",
+  ip: "Ip",
+  "address.city": "City",
+  "address.postalCode": "Postal code",
+};
 
 let skip = 0;
 let usersData = [];
@@ -97,6 +115,9 @@ function createTable({ rows, cols }) {
 function createGrid(num) {
   let cellTable = document.createElement("div");
   cellTable.className = "table-cell__cont";
+  if ((Math.floor(num / columns.length) + 1) > 2 && (Math.floor(num / columns.length) + 1) % 2 === 1) {
+    cellTable.classList.add('odd-line');
+  }
   cellTable.id = `table-cell__cont ${Math.floor(num / columns.length) + 1}-${
     (num % columns.length) + 1
   }`;
@@ -131,12 +152,13 @@ function createPagination() {
 function createArrow(symb, name) {
   let cell = document.createElement("div");
   cell.className = `pagination_arrow__${name}-item`;
+  cell.id = `pagination_arrow ${name}`;
 
-  let arrowLeft = document.createElement("a");
-  arrowLeft.className = `pagination_arrow__${name}-link`;
-  arrowLeft.innerText = symb;
+  let arrow = document.createElement("a");
+  arrow.className = `pagination_arrow__${name}-link`;
+  arrow.innerText = symb;
 
-  cell.appendChild(arrowLeft);
+  cell.appendChild(arrow);
 
   return cell;
 }
@@ -169,22 +191,75 @@ window.onload = function () {
 
   document
     .querySelectorAll("div.pagination_item")
-    .forEach((item) => document.addEventListener('click', changePage));
+    .forEach((item) => item.addEventListener("click", changePage));
+
+  document
+    .querySelectorAll(
+      "div.pagination_arrow__left-item, div.pagination_arrow__right-item"
+    )
+    .forEach((item) => item.addEventListener("click", arrowClick));
 };
+
+function showLoader() {
+  const mainCont = document.getElementById("main-cont");
+  mainCont.style.pointerEvents = "none";
+  mainCont.style.opacity = 0.15;
+
+  const loader = document.getElementById("loader");
+  loader.style.display = "block";
+}
+
+function hideLoader() {
+  const mainCont = document.getElementById("main-cont");
+  mainCont.style.pointerEvents = "auto";
+  mainCont.style.opacity = 1;
+
+  const loader = document.getElementById("loader");
+  loader.style.display = "none";
+}
 
 function changePage(e) {
   changeActiveButton(e.target.id);
+  getUsers(userPerPageNumbers, (currentActivePage - 1) * userPerPageNumbers);
+}
 
-  getUsers(userPerPageNumbers, (currentActivePage-1)*userPerPageNumbers);
+function arrowClick(e) {
+  let isChange = changeActiveArrow(e.target.className);
+
+  if (isChange)
+    getUsers(userPerPageNumbers, (currentActivePage - 1) * userPerPageNumbers);
 }
 
 function changeActiveButton(id) {
-  let activeElement = document.getElementById(`pagination_link ${currentActivePage}`);
-  activeElement.classList.remove('active');
+  let activeElement = document.getElementById(
+    `pagination_link ${currentActivePage}`
+  );
+  activeElement.classList.remove("active");
 
-  currentActivePage = +id.split(' ').at(-1);
-  let newActiveElement = document.getElementById(`pagination_link ${currentActivePage}`);
-  newActiveElement.classList.add('active');
+  currentActivePage = +id.split(" ").at(-1);
+  let newActiveElement = document.getElementById(
+    `pagination_link ${currentActivePage}`
+  );
+  newActiveElement.classList.add("active");
+}
+
+function changeActiveArrow(e) {
+  if (currentActivePage === 1 && e.includes("left")) return false;
+  if (currentActivePage === pageNumbers && e.includes("right")) return false;
+
+  let activeElement = document.getElementById(
+    `pagination_link ${currentActivePage}`
+  );
+  activeElement.classList.remove("active");
+  currentActivePage = e.includes("left")
+    ? currentActivePage - 1
+    : currentActivePage + 1;
+  let newActiveElement = document.getElementById(
+    `pagination_link ${currentActivePage}`
+  );
+  newActiveElement.classList.add("active");
+
+  return true;
 }
 
 function createTableList() {
@@ -198,15 +273,14 @@ function fillHeader() {
     cellCont.classList.add("header");
 
     const cellText = document.getElementById(`table-cell__text 1-${c + 1}`);
-    cellText.innerText = columns[c];
+    cellText.innerText = columnsUserFriendlyNames[columns[c]];
   }
 }
-
-// https://dummyjson.com/users
 
 async function getUsers(limit, skip) {
   usersData = [];
   try {
+    showLoader();
     const response = await fetch(
       `https://dummyjson.com/users?limit=${limit}&skip=${skip}`
     );
@@ -214,11 +288,16 @@ async function getUsers(limit, skip) {
     for (let user of responseData.users) {
       usersData.push(user);
     }
-
     fillTable();
-
+    hideLoader();
   } catch (error) {
     console.error(error);
+  }
+}
+
+function fillTable() {
+  for (r = 1; r <= userPerPageNumbers; r++) {
+    getUser(r);
   }
 }
 
@@ -233,11 +312,5 @@ function getUser(r) {
     } else {
       cellText.innerText = usersData[r - 1][columns[c]];
     }
-  }
-}
-
-function fillTable() {
-  for (r = 1; r <= userPerPageNumbers; r++) {
-    getUser(r);
   }
 }
