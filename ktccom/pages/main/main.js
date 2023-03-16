@@ -77,17 +77,13 @@ document
   });
 
 function serviceText(e) {
-  document
-    .querySelectorAll("div.services-containter__item")
-    .forEach((elem) => {
-      if (elem.id === e.target.id) {
-        elem.classList.add('services-containter__active');
-      } else {
-        elem.classList.remove('services-containter__active');
-      }
-    });
-    
-  
+  document.querySelectorAll("div.services-containter__item").forEach((elem) => {
+    if (elem.id === e.target.id) {
+      elem.classList.add("services-containter__active");
+    } else {
+      elem.classList.remove("services-containter__active");
+    }
+  });
 
   let servTitle = document.getElementById("services-containter__text-title");
   servTitle.innerText = services[e.target.id]["title"];
@@ -95,3 +91,25 @@ function serviceText(e) {
   let servText = document.getElementById("services-containter__text-desc");
   servText.innerText = services[e.target.id]["text"];
 }
+
+// Burger menu
+const burgerElement = document.querySelector(".burger");
+const menu = document.querySelector(".nav-list");
+const menuItem = document
+  .querySelectorAll("li.nav-list__item")
+  .forEach((elem) => {
+    elem.addEventListener("click", (e) => {
+      console.log(e);
+      menu.classList.remove("nav-list_active");
+    });
+  });
+
+burgerElement.addEventListener("click", () => {
+  menu.classList.add("nav-list_active");
+});
+
+const closeElement = document.querySelector(".nav-list__close");
+
+closeElement.addEventListener("click", () => {
+  menu.classList.remove("nav-list_active");
+});

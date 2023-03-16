@@ -55,6 +55,25 @@ br {
   opacity: 0.65;
 }
 
+/* Nav burger */
+.nav__burger {
+  width: 40px;
+  height: 28px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.burger__line {
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+}
+
+.nav_active {
+  background: #0e1d28;
+}
+
 /* Header */
 .header {
   height: 650px;
@@ -80,7 +99,7 @@ br {
 .header-container {
   display: flex;
   flex-direction: column;
-  width: 620px;
+  max-width: 620px;
 }
 
 .header-containter__title {
@@ -347,7 +366,7 @@ br {
   height: 15px;
   width: 15px;
   margin: 0 10px;
-  background-color: #13709D;
+  background-color: #13709d;
   opacity: 0.4;
   border-radius: 3px;
   display: inline-block;
@@ -357,7 +376,7 @@ br {
 /* Add a background color to the active dot/circle */
 .active,
 .dot:hover {
-  background: #4F94B5;
+  background: #4f94b5;
   opacity: 1;
 }
 
@@ -440,7 +459,7 @@ input {
 }
 
 .form__button-send {
-  background-color: #13709D;
+  background-color: #13709d;
   color: white;
   padding: 5px;
   width: 30%;
@@ -502,4 +521,64 @@ input {
   font-size: 20px;
   line-height: 140%;
   color: white;
+}
+
+@media screen and (max-width: 900px) {
+  .nav__burger {
+    display: flex;
+  }
+  .nav-list {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #4d60f3;
+    z-index: 100;
+    display: block;
+    padding: 50px 20px 20px;
+    transform: translateX(100%);
+    transition: 0.3s all linear;
+  }
+  .nav-list_active {
+    transform: none;
+  }
+  .nav-list__item {
+    width: 100%;
+    margin-right: 0;
+    padding: 20px;
+    text-align: center;
+  }
+  .nav-list__item:last-child {
+    padding-bottom: none;
+  }
+  .nav-list__link {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 140%;
+    line-height: 48px;
+  }
+  .nav-list__close {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 101;
+  }
+  .nav-list__close-line {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .nav-list__close-line:first-child {
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .nav-list__close-line:last-child {
+    transform: translateY(-50%) rotate(-45deg);
+  }
 }/*# sourceMappingURL=style.css.map */
