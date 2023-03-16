@@ -4,6 +4,7 @@
 /* General */
 
 $widthContainterBig: 620px;
+$paddingBetweenSection: 100px;
 
 @mixin textFormat($weight, $size, $height) {
   font-weight: $weight;
@@ -167,7 +168,7 @@ br {
 /* Services */
 
 .services {
-  padding: 100px 0;
+  padding: $paddingBetweenSection 0;
 }
 
 .services-containter {
@@ -195,7 +196,7 @@ br {
   background-color: #4d60f3;
   height: 220px;
   border-radius: 20px;
-  padding: 30px 35px;
+  padding: 30px 30px;
 
   &:hover {
     cursor: pointer;
@@ -221,7 +222,7 @@ br {
 
 .about {
   background-color: #f5f5f9;
-  padding: 100px 0;
+  padding: $paddingBetweenSection 0;
 }
 
 .about-countainer {
@@ -244,14 +245,13 @@ br {
 }
 
 .about-countainer__img {
-  max-width: 380px;
   object-fit: cover;
 }
 
 /* Reviews */
 
 .reviews {
-  margin: 100px 0;
+  margin: $paddingBetweenSection 0;
 }
 
 .reviews-containter__title {
@@ -388,7 +388,7 @@ br {
 
 .back-call {
   background-color: #f5f5f9;
-  padding: 100px 0;
+  padding: $paddingBetweenSection 0;
 }
 
 .back-call-cont {
@@ -477,7 +477,7 @@ input {
 /* partners */
 
 .partners {
-  padding: 100px 0;
+  padding: $paddingBetweenSection 0;
 }
 
 .partners-cont__text-title {
@@ -617,6 +617,47 @@ input {
 
   .header-containter__link {
     margin-top: 55px;
+  }
+
+  /* Services */
+
+  .services-containter__item {
+    display: flex;
+    align-items: center;
+
+    height: auto;
+
+    padding: 20px 40px;
+  }
+
+  .services-containter__item-text {
+    display: none;
+  }
+
+  .services-containter__item-icon {
+    margin: 0 auto;
+    max-height: 72px;
+  }
+
+  /* About */ 
+
+  .about-countainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 725px) {
+  .services-containter {
+    grid-template-rows: repeat(3, auto);
+  }
+
+  .services-containter__item {
+    padding: 20px;
+  }
+
+  .services-containter__text {
+    grid-area: 3 / 1 / -1 / -1;
+    margin-right: 0px;
   }
 }
 
