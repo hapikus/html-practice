@@ -232,6 +232,7 @@ br {
 }
 
 .about-countainer__img {
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -250,13 +251,14 @@ br {
 
 .slideshow-container {
   position: relative;
+  margin: 0 auto;
+  max-width: 900px;
 }
 
 .slide-cont {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   background-color: #13709d;
+  padding: 20px;
   border-radius: 20px;
 }
 
@@ -272,7 +274,6 @@ br {
 }
 
 .slide-text__desc {
-  height: 350px;
   text-align: left;
   font-weight: 400;
   font-size: 16px;
@@ -294,11 +295,10 @@ br {
 }
 
 .slide-img {
-  height: 400px;
+  height: 410px;
   width: 260px;
   -o-object-fit: cover;
      object-fit: cover;
-  margin: 20px;
   border-radius: 20px;
 }
 
@@ -330,13 +330,13 @@ br {
 }
 
 .prev {
-  left: 160px;
+  left: 0px;
 }
 
 /* Position the "next button" to the right */
 .next {
   position: absolute;
-  right: 160px;
+  right: 0px;
   border-radius: 3px 0 0 3px;
   color: black;
 }
@@ -608,20 +608,90 @@ input {
   .about-countainer {
     grid-template-columns: 1fr 1fr;
   }
+  /* Slider */
+  slide-img .slideshow-container {
+    max-width: 700px;
+  }
+  .slide-img {
+    display: none;
+  }
+  .mySlides {
+    max-width: 82%;
+  }
+  .slide-text__title {
+    margin: 0 35px;
+    padding: 0 0 20px 0;
+  }
+  .slide-text__desc {
+    margin: 0 35px 20px;
+    padding: 0 0;
+  }
 }
 @media screen and (max-width: 725px) {
+  /* Header */
+  .header {
+    height: 550px;
+    padding-top: 110px;
+  }
+  /* Services */
+  .services {
+    padding: 70px 0;
+  }
   .services-containter {
     grid-template-rows: repeat(3, auto);
   }
   .services-containter__item {
     padding: 20px;
   }
+  .services-containter__text-title {
+    margin-top: 40px;
+  }
   .services-containter__text {
     grid-area: 3/1/-1/-1;
     margin-right: 0px;
   }
+  /* About */
+  .about {
+    padding: 70px 0;
+  }
+  .about-countainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 40px;
+  }
+  .about-countainer__text {
+    margin-right: 0px;
+  }
+  .about-countainer__img {
+    max-height: 500px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    margin: 0 auto;
+  }
+  /* Reviews */
+  .reviews {
+    margin: 70px 0;
+  }
+  .mySlides {
+    max-width: 82%;
+  }
+  .slide-text__title {
+    margin: 0 0 20px;
+  }
+  .slide-text__desc {
+    margin: 0 0 10px;
+  }
+  /* call-back */
+  .back-call {
+    padding: 70px 0;
+  }
+  /* partners */
+  .partners {
+    padding: 70px 0;
+  }
 }
 @media screen and (max-width: 410px) {
+  /* Header */
   .header {
     padding-top: 110px;
   }
