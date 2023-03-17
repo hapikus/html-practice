@@ -113,3 +113,16 @@ const closeElement = document.querySelector(".nav-list__close");
 closeElement.addEventListener("click", () => {
   menu.classList.remove("nav-list_active");
 });
+
+/* Call-back button */
+
+const callBackButton = document.getElementById("form__button-send");
+callBackButton.addEventListener("click", () => {
+  formElements = document
+    .querySelectorAll(
+      "input.form__name-input, input.form__email-input, input.form__phone-input, input.form__msg-input"
+    )
+    .forEach((elem) => {
+      elem.value = '';
+    });
+});
